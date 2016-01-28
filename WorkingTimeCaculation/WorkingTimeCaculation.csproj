@@ -66,6 +66,7 @@
     <Reference Include="utilities, Version=1.0.0.51, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckTimeParser.cs" />
     <Compile Include="ExcelHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
