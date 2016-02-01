@@ -12,7 +12,11 @@ namespace WorkingTimeCaculation
         {
             List<RawRecord> rawRecordList = this.GetRawRecordList(dataTable);
 
+            List<WorkingTimeRecord> recordList = new RawRecordConverter().ConvertRawRecord(rawRecordList);
+
+
             // todo : convert rawRecordList to WorkTimeRecord list;
+            List<WorkingTimeRecord> recordList2 = new WorkingTimePreprocessor().Process(recordList);
 
             // preprocess WorktimeRecordEntry. remove XX:XX
 

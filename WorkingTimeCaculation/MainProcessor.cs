@@ -33,7 +33,7 @@ namespace WorkingTimeCaculation
 
             var dataTable = excelReader.ReadExcel(file);
 
-            List<WorkTimeRecord> retList =  worktimeProcessor.ProcessFile(dataTable);
+            List<WorkTimeRecordExport> retList = worktimeProcessor.ProcessFile(dataTable);
 
             string outputFileName = file.Replace(".", "_result.");
 
