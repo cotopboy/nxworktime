@@ -23,5 +23,7 @@ namespace WorkingTimeCaculation
 
         public double HolidayOverwork { get; set; }
 
+        public string Error { get; set; }
+
     }
 }

@@ -22,7 +22,7 @@ namespace WorkingTimeCaculation
                 temp.Name = item.Name;
                 temp.Department = item.Department;
                 temp.Date = DateTime.ParseExact(item.Date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-
+                temp.WorkRecordRawContent = item.WorkingTimeRecordRawText;
                 temp.CheckTimeDetail =  CheckTimeParser.Parse(item.WorkingTimeRecordRawText);
                 retList.Add(temp);
 

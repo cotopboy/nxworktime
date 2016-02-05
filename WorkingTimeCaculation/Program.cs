@@ -16,8 +16,14 @@ namespace WorkingTimeCaculation
     class Program
     {
         static void Main(string[] args)
-        {
-            new MainProcessor().StartProcess();         
+        {          
+            
+
+            new MainProcessor().StartProcess();
+
+            Console.WriteLine("Press any key to end");
+
+            Console.ReadKey();
         }
     }
 }

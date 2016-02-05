@@ -66,11 +66,28 @@
     <Reference Include="utilities, Version=1.0.0.51, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculcation\OtherCalculator.cs" />
+    <Compile Include="Calculcation\SimpleWorkTimeCalculator.cs" />
+    <Compile Include="Calculcation\TTXTCalculator.cs" />
+    <Compile Include="Calculcation\TTXTTTCalculator.cs" />
+    <Compile Include="Calculcation\TTXTXTCalculator.cs" />
+    <Compile Include="Calculcation\TXTTCalculator.cs" />
+    <Compile Include="Calculcation\TXTTTTCalculator.cs" />
+    <Compile Include="Calculcation\TXTXCalculator.cs" />
+    <Compile Include="Calculcation\TXXTCalculator.cs" />
+    <Compile Include="Calculcation\TXXTTTCalculator.cs" />
+    <Compile Include="Calculcation\TXXTXTCalculator.cs" />
+    <Compile Include="Calculcation\XTTTCalculator.cs" />
+    <Compile Include="Calculcation\XTTTTTCalculator.cs" />
+    <Compile Include="Calculcation\XTXTCalculator.cs" />
     <Compile Include="CheckTimeParser.cs" />
+    <Compile Include="DateTimeSorter.cs" />
     <Compile Include="ExcelExporter.cs" />
     <Compile Include="ExcelHelper.cs" />
     <Compile Include="ExcelReader.cs" />
+    <Compile Include="FileDbEngine.cs" />
     <Compile Include="MainProcessor.cs" />
+    <Compile Include="PauseSectionProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RawRecordConverter.cs" />

@@ -53,6 +53,179 @@ namespace WorkingTimeCaculation
             this.sectionList.Add(section);
         }
 
+        public bool IsSectionClear
+        {
+            get { return !sectionList.Any(x => !x.IsSectionComplete); }
+        }
+
+        public CheckTimeSection GetMorningSection()
+        {
+            var item = this.sectionList.FirstOrDefault(x => x.StartTimeSpan <= TimeSpan.FromHours(14)
+                                                    && x.EndTimeSpan <= TimeSpan.FromHours(14));
+
+            return item; 
+        }
+
+        public bool IsTXXTPattern
+        { 
+            get{
+                return this.sectionList.Count == 2
+                    && this.sectionList[0].StartTimeSpan.HasValue
+                    && !this.sectionList[0].EndTimeSpan.HasValue
+                    && !this.sectionList[1].StartTimeSpan.HasValue
+                    && this.sectionList[1].EndTimeSpan.HasValue;
+            
+            }
+        }
+
+        public bool IsTTXTPattern
+        {
+            get
+            {
+                return this.sectionList.Count == 2
+                    && this.sectionList[0].StartTimeSpan.HasValue
+                    && this.sectionList[0].EndTimeSpan.HasValue
+                    && !this.sectionList[1].StartTimeSpan.HasValue
+                    && this.sectionList[1].EndTimeSpan.HasValue;
+
+            }
+        }
+
+        public bool IsTXTXPattern
+        {
+            get 
+            {
+                return this.sectionList.Count == 2
+                 && this.sectionList[0].StartTimeSpan.HasValue
+                 && !this.sectionList[0].EndTimeSpan.HasValue
+                 && this.sectionList[1].StartTimeSpan.HasValue
+                 && !this.sectionList[1].EndTimeSpan.HasValue;
+            }
+        }
+
+        public bool IsTTXTTTPattern
+        {
+            get
+            {
+                return this.sectionList.Count == 3
+                 && this.sectionList[0].StartTimeSpan.HasValue
+                 && this.sectionList[0].EndTimeSpan.HasValue
+                 && !this.sectionList[1].StartTimeSpan.HasValue
+                 && this.sectionList[1].EndTimeSpan.HasValue
+                 && this.sectionList[2].StartTimeSpan.HasValue
+                 && this.sectionList[2].EndTimeSpan.HasValue;
+            }
+        }
+
+        public bool IsTXXTTT
+        {
+            get
+            {
+                return this.sectionList.Count == 3
+                 && this.sectionList[0].StartTimeSpan.HasValue
+                 && !this.sectionList[0].EndTimeSpan.HasValue
+                 && !this.sectionList[1].StartTimeSpan.HasValue
+                 && this.sectionList[1].EndTimeSpan.HasValue
+                 && this.sectionList[2].StartTimeSpan.HasValue
+                 && this.sectionList[2].EndTimeSpan.HasValue;
+            }
+        }
+
+        public bool IsTTXTXT
+        {
+            get
+            {
+                return this.sectionList.Count == 3
+                 && this.sectionList[0].StartTimeSpan.HasValue
+                 && this.sectionList[0].EndTimeSpan.HasValue
+                 && !this.sectionList[1].StartTimeSpan.HasValue
+                 && this.sectionList[1].EndTimeSpan.HasValue
+                 && !this.sectionList[2].StartTimeSpan.HasValue
+                 && this.sectionList[2].EndTimeSpan.HasValue;
+            }
+        }
+
+        public bool IsTXTTTT
+        {
+            get
+            {
+                return this.sectionList.Count == 3
+                 && this.sectionList[0].StartTimeSpan.HasValue
+                 && !this.sectionList[0].EndTimeSpan.HasValue
+                 && this.sectionList[1].StartTimeSpan.HasValue
+                 && this.sectionList[1].EndTimeSpan.HasValue
+                 && this.sectionList[2].StartTimeSpan.HasValue
+                 && this.sectionList[2].EndTimeSpan.HasValue;
+            }
+        }
+
+
+
+        public bool IsXTTT
+        {
+            get
+            {
+                return this.sectionList.Count == 2
+                 && !this.sectionList[0].StartTimeSpan.HasValue
+                 && this.sectionList[0].EndTimeSpan.HasValue
+                 && this.sectionList[1].StartTimeSpan.HasValue
+                 && this.sectionList[1].EndTimeSpan.HasValue;
+            }
+        }
+
+
+        public bool IsXTXT
+        {
+            get
+            {
+                return this.sectionList.Count == 2
+                 && !this.sectionList[0].StartTimeSpan.HasValue
+                 && this.sectionList[0].EndTimeSpan.HasValue
+                 && !this.sectionList[1].StartTimeSpan.HasValue
+                 && this.sectionList[1].EndTimeSpan.HasValue;
+            }
+        }
+
+        public bool IsTXTT
+        {
+            get
+            {
+                return this.sectionList.Count == 2
+                 && this.sectionList[0].StartTimeSpan.HasValue
+                 && !this.sectionList[0].EndTimeSpan.HasValue
+                 && this.sectionList[1].StartTimeSpan.HasValue
+                 && this.sectionList[1].EndTimeSpan.HasValue;
+            }
+        }
+
+        public bool IsXTTTTT
+        {
+            get 
+            {
+                return this.sectionList.Count == 3
+               && !this.sectionList[0].StartTimeSpan.HasValue
+               && this.sectionList[0].EndTimeSpan.HasValue
+               && this.sectionList[1].StartTimeSpan.HasValue
+               && this.sectionList[1].EndTimeSpan.HasValue
+               && this.sectionList[2].StartTimeSpan.HasValue
+               && this.sectionList[2].EndTimeSpan.HasValue;
+            }
+        }
+
+        public bool IsTXXTXT {
+            get
+            {
+                return this.sectionList.Count == 3
+               && this.sectionList[0].StartTimeSpan.HasValue
+               && !this.sectionList[0].EndTimeSpan.HasValue
+               && !this.sectionList[1].StartTimeSpan.HasValue
+               && this.sectionList[1].EndTimeSpan.HasValue
+               && !this.sectionList[2].StartTimeSpan.HasValue
+               && this.sectionList[2].EndTimeSpan.HasValue;
+            }
+        }
+
+        
     }
 
 
@@ -61,6 +234,10 @@ namespace WorkingTimeCaculation
         public string Start { get; set; }
 
         public string End { get; set; }
+
+        public int sectionIndex { get; set; }
+
+        public string RawText { get; set; }
 
         public TimeSpan ? StartTimeSpan 
         {
@@ -117,6 +294,7 @@ namespace WorkingTimeCaculation
 
             section.Start = array[0];
             section.End = array[1];
+            section.RawText = input.Trim();
 
             return section;
         }
